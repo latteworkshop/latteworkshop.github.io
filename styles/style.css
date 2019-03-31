@@ -1,0 +1,76 @@
+body{
+    font-family: 'Kanit', sans-serif;
+}
+
+.section-flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+input.time{
+    background: none;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 6em;
+    width: 700px;
+    margin-bottom: 20px;
+    transition: all 2s ease;
+}
+
+.title {
+    font-size: 5em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    opacity: 0.9;
+}
+
+.section-1 button{
+    height: 70px;
+    width: 300px;
+    font-size: 2em;
+}
+.section-2 p {
+    font-size: 1.5em;
+    color: white;
+    opacity: 0.7;
+}
+
+.section-2 .title {
+    opacity: 0.7;
+}
+
+p.detail{
+    font-size: 1.5em;
+    color: white;
+    opacity: 0.7;
+}
+
+.section-2 .title {
+    opacity: 0.7;
+}
+
+.section-10 .title,
+.section-10 .detail
+{
+    color: black;
+}
+.section-10 .title{
+    font-size: 7em;
+}
+.section-10 .detail{
+    font-size: 3em;
+}
+
+#control-btn{
+    position: absolute;
+    z-index: 99;
+    right: 15px;
+    top: 15px;
+    opacity: 0.7;
+    font-size: 2em;
+    color: white;
+}
+
+

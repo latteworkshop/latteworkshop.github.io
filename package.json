@@ -1,0 +1,15 @@
+{
+  "name": "kea-workshop",
+  "version": "1.0.0",
+  "description": "Business solution workshop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "fullpage.js": "^3.0.4"
+  }
+}
