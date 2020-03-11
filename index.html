@@ -20,78 +20,14 @@
 </head>
 <body>
 <div id="control-btn">
-
 </div>
 <div id="fullpage">
     <div class="section active" id="section-1">
         <div class="section-flex">
             <div align="center" class="section-1">
-                <h1 class="title">KEA WORKSHOP</h1>
-                <button onclick="fullpage_api.moveSectionDown();countDown('time-section-2');" class="btn btn-light btn-lg">Start</button>
+                <a href="design_patterns.html" class="btn btn-light btn-lg">Design Patterns</a>
+                <a href="timer.html" class="btn btn-light btn-lg">Timer</a>
             </div>
-        </div>
-    </div>
-    <div class="section" id="section-2">
-        <div align="center" class="section-2">
-            <input class="time" id="time-section-2" type="text" value="00:05:00">
-            <h1 class="title">#HASHTAG</h1>
-            <p class="detail">#ชอบเที่ยว</p>
-            <p class="detail">#ไม่ชอบรถติด</p>
-            <p class="detail">#ชอบเล่นเกม</p>
-            <p class="detail">#ไม่ชอบกินข้าวมันไก่</p>
-            <p class="detail">#ชอบเครื่องบิน</p>
-        </div>
-    </div>
-    <div class="section">
-        <div align="center" class="section-3">
-            <input class="time" id="time-section-3" type="text" value="00:03:00">
-            <h1 class="title">I want to solve... or</h1>
-            <h1 class="title">I want to make ... better</h1>
-            <p class="detail">#ฉันต้องการทำให้รถติดไม่น่าเบื่อ</p>
-            <p class="detail">#ฉันต้องการทำให้การเที่ยวประหยัดขึ้น</p>
-        </div>
-    </div>
-    <div class="section">
-        <div align="center" class="section-4">
-            <input class="time" id="time-section-4" type="text" value="00:10:00">
-            <h1 class="title">Present a problem</h1>
-        </div>
-    </div>
-    <div class="section">
-        <div align="center" class="section-5">
-            <input class="time" id="time-section-5" type="text" value="00:12:00">
-            <h1 class="title">Problem Discussion</h1>
-        </div>
-    </div>
-    <div class="section">
-        <div align="center" class="section-6">
-            <input class="time" id="time-section-6" type="text" value="00:30:00">
-            <h1 class="title">Find solutions</h1>
-        </div>
-    </div>
-    <div class="section">
-        <div align="center" class="section-7">
-            <input class="time"  id="time-section-7" type="text" value="00:30:00">
-            <h1 class="title">Research & Interview</h1>
-            <img src="images/qr-interview.png" alt="">
-        </div>
-    </div>
-    <div class="section">
-        <div align="center" class="section-8">
-            <input class="time"  id="time-section-8" type="text" value="00:30:00">
-            <h1 class="title">Design Solution</h1>
-        </div>
-    </div>
-    <div class="section">
-        <div align="center" class="section-9">
-            <input class="time" id="time-section-9" type="text" value="00:45:00">
-            <h1 class="title">Sample & Presentation</h1>
-        </div>
-    </div>
-    <div class="section"id="section-10">
-        <div align="center" class="section-10">
-            <h1 class="title">Success</h1>
-            <p class="detail">Good luck!</p>
         </div>
     </div>
 </div>
@@ -103,90 +39,8 @@
         scrollHorizontally: true,
         sectionsColor: [
             '#ff5f45',
-            '#0798ec',
-            '#fc6c7c',
-            '#fec401',
-            "#c63d0f",
-            "#1bbc9b",
-            "#7e8f7c",
-            "#0798ec",
-            "#ff5f45",
-            "#eae1c0",
         ],
     });
-
-    let isCount = false;
-    let isCloseTimeUp = false;
-    let currentSectionId = "";
-    let currentSectionTime = "";
-
-    function setTime(sectionId,times){
-        document.getElementById(sectionId).value = times.join(":");
-        let color = document.getElementById(sectionId).style.color;
-        if(isCloseTimeUp){
-            if(color === "rgb(255, 255, 255)" || color === "#ffffff"){
-                document.getElementById(sectionId).style.color = "#ff0000";
-                document.getElementById(sectionId).style.fontSize = "10em";
-            } else {
-                document.getElementById(sectionId).style.color = "#ffffff";
-                document.getElementById(sectionId).style.fontSize = "6em";
-            }
-        }
-    }
-
-    function toggleControlBtn() {
-        if(!isCount){
-            isCount = true;
-            document.getElementById("control-btn").innerHTML = "<a onclick='toggleControlBtn()' class='control-btn'><i class=\"far fa-pause-circle\"></i></a>";
-        } else {
-            isCount = false;
-            document.getElementById("control-btn").innerHTML = "<a onclick='toggleControlBtn()' class='control-btn'><i class=\"far fa-play-circle\"></i></a>";
-        }
-    }
-
-    function countDown(sectionId,time){
-        toggleControlBtn();
-        currentSectionId = sectionId;
-        if(time){
-            document.getElementById(sectionId).value = time;
-        }
-        currentSectionTime = document.getElementById(sectionId).value;
-        document.getElementById(sectionId).style.color = "#ffffff";
-        isCloseTimeUp = false;
-        document.getElementById(sectionId).style.fontSize = "6em";
-        let letCount = setInterval(()=>{
-            if(isCount){
-                let times = document.getElementById(sectionId).value.split(":");
-                if(times[2] > 0){
-                    times[2] = (times[2]-1).toString().padStart(2, '0');
-                    if(times[0] === "00" && times[1] === "00" && times[2] < 10){
-                        isCloseTimeUp = true;
-                    }
-                } else if(times[1] > 0) {
-                    times[1] = (times[1]-1).toString().padStart(2, '0');
-                    times[2] = 60;
-                } else if(times[0] > 0) {
-                    times[1] = (times[0]-1).toString().padStart(2, '0');
-                    times[1] = 60;
-                    times[2] = 60;
-                } else {
-                    clearInterval(letCount);
-                    console.log("Finised");
-                    isCount = false;
-                    document.getElementById("control-btn").innerHTML = "<a onclick='countDown(currentSectionId,currentSectionTime)' class='control-btn'><i class=\"far fa-play-circle\"></i></a>";
-                    let numberSection = currentSectionId.replace("time-section-","");
-                    if(numberSection < 10){
-                        numberSection++;
-                        console.log("time-section-"+numberSection);
-                        fullpage_api.moveSectionDown();
-                        countDown("time-section-"+numberSection,false);
-                    }
-                }
-                setTime(sectionId,times)
-            }
-        },1000)
-    }
-
 </script>
 </body>
 </html>
